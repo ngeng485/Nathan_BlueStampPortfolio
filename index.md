@@ -5,7 +5,7 @@ This project is related to the robotic arm.
 |:--:|:--:|:--:|:--:|
 |Nathan G| The Kings Academy| Electrical Engineering | Incoming 8th Grader
 
-![Headstone](Nathan_First_Headshot.png)
+![Headstone](Headshot.PNG)
 
 
 # Final Milestone
