@@ -47,35 +47,70 @@ So far, I have integrated my joysticks and servos so that they work together. I 
 ![schematics](schematics.PNG)
 This is the the schematics for my robotic arm, as shown. Everything is connected and the wires and servos are connected accordingly.
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
-
 ```c++
+#include "Servo.h" 
+Servo Servo1;
+Servo Servo2;
+Servo Servo3;
+Servo Servo4;
+
+
+int pos1 = 0; 
+int pos2 = 0;
+int pos3 = 0;
+int pos4 = 0;
+
+int processJoystick(int Ben, int center) {
+int reading = analogRead (Ben)-center;
+Serial.print(reading);
+Serial.print( " ");
+reading = reading/100; 
+if (reading>=-2 && reading<=2){
+reading=0;
+}
+return reading;
+
+}
 void setup() {
-  // put your setup code here, to run once:
+  Servo1.attach(4);
+  Servo2.attach(5);
+  Servo3.attach(6);
+  Servo4.attach(7);
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  Servo1.write(90);
+  Servo2.write(90);
+  Servo3.write(90);
+  Servo4.write(90);
+  delay(500);
+  pos1=analogRead(A0);
+  pos2=analogRead(A1);
+  pos3=analogRead(A2);
+  pos4=analogRead(A4);
+  
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+
+void loop(){
+int leftx=processJoystick(A0,pos1);
+int lefty=processJoystick(A1,pos2);
+int rightx=processJoystick(A2,pos3);
+int righty=processJoystick(A3,pos4);
+Serial.println();
+Servo1.write(Servo1.read()+leftx);
+Servo2.write(Servo2.read()+lefty);
+Servo3.write(Servo3.read()+rightx);
+Servo4.write(Servo4.read()+righty);
+delay(30);
 
 }
-```
 
+This code uses the function processjoystick to control the servos and defines all the servos. It uses servo.write to tell the servos to move according to the serial monitor. The servos are all in 90 degrees in the beginning, and this allows them to be in a position when the batteries are plugged. The void loop runs everything continuously and allows the corresponding joystick manuever to control it.
 
 # Bill of Materials
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 | Cokoino Robotic Arm Kit | It is the kit with all of the materials | $49.99 | <a href="https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1/ref=sr_1_2?crid=2P0244CI0YDK2&dib=eyJ2IjoiMSJ9.gcjv3cdLr95DY2kRWPo6nHH23c4J0NUyjsREXptQDlo.S3aIHrUHSlXeFcWaqggH78oDUJVAXt0N8GmpUktK4HU&dib_tag=se&keywords=lk+cokoino+robotic+arm&qid=1720730123&sprefix=cokoino%2Caps%2C147&sr=8-2"> Link </a> |
-
-<!---
-# Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
-- [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
-- [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
--->
 
 
 # Starter Project Milestone
