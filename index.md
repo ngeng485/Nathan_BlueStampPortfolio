@@ -15,12 +15,8 @@ This project is related to the robotic arm.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HyrRUpX5CV8?si=b-tCAKkckB787-Vh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-In my final milestone, I was supposed to code and made sure all my
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+In my final milestone, I was supposed to code and made sure all my code works. Thanks to Ben, I finished my all my work and finished programming. In programming, I first set it to servo Servo1, servo Servo2, all the way to servo Servo4. this defined the servo, and then we created a joystick function and then plugged it in. Then, we set the servo to different degrees based on the serial monitor and plug it in. Doing this allows the joystick to control the the different parts based on the serial monitor.
+
 
 
 
